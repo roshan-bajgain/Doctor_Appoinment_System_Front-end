@@ -31,16 +31,23 @@ export const Navbar = () => {
       <div className="flex items-center gap-4">
         {token ? (
           <div className="flex items-center gap-2 cursor-pointer group relative">
-            <img className="w-8.5 rounded-full" src={assets.profile_pic} alt="Profile image" />
-            <img className="w-2.5" src={assets.dropdown_icon} alt="Drop Down Icon" />
+            <img
+              className="w-8.5 rounded-full"
+              src={assets.profile_pic}
+              alt="Profile image"
+            />
+            <img
+              className="w-2.5"
+              src={assets.dropdown_icon}
+              alt="Drop Down Icon"
+            />
             <div className="absolute top-0 right-0 pt-18 text-base font-medium text-gray-500 z-20 hidden group-hover:block">
-              <div>
-                <p>My Profile</p>
-                <p>My Appoinment</p>
-                <p>Logout</p>
+              <div className="min-w-45 bg-stone-100 rounded flex flex-col gap-4 p-4">
+                <p className="hover:text-black cursor-pointer">My Profile</p>
+                <p className="hover:text-black cursor-pointer">My Appoinment</p>
+                <p className="hover:text-black cursor-pointer">Logout</p>
               </div>
             </div>
-            
           </div>
         ) : (
           <button
