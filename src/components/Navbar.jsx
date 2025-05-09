@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [token, setToken] = useState(true);
 
   const Navigate = useNavigate();
   return (
@@ -27,7 +29,27 @@ export const Navbar = () => {
         </NavLink>
       </ul>
       <div className="flex items-center gap-4">
-        <button onClick={()=> Navigate('/login')} className="bg-blue-500 text-white px-8 py-3 rounded-full font-light hidden md:block">Create Account</button>
+        {token ? (
+          <div className="flex items-center gap-2 cursor-pointer group relative">
+            <img className="w-8.5 rounded-full" src={assets.profile_pic} alt="Profile image" />
+            <img className="w-2.5" src={assets.dropdown_icon} alt="Drop Down Icon" />
+            <div className="absolute top-0 right-0 pt-18 text-base font-medium text-gray-500 z-20 hidden group-hover:block">
+              <div>
+                <p>My Profile</p>
+                <p>My Appoinment</p>
+                <p>Logout</p>
+              </div>
+            </div>
+            
+          </div>
+        ) : (
+          <button
+            onClick={() => Navigate("/login")}
+            className="bg-blue-500 text-white px-8 py-3 rounded-full font-light hidden md:block"
+          >
+            Create Account
+          </button>
+        )}
       </div>
     </div>
   );
