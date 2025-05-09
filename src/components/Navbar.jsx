@@ -24,8 +24,8 @@ export const Navbar = () => {
           <hr className="border-none outline-none h-0.5 bg-blue-500 w-3/5 m-auto hidden" />
         </NavLink>
       </ul>
-      <div>
-        <button>Create Account</button>
+      <div className="flex items-center gap-4">
+        <button className="bg-blue-500 text-white px-8 py-3 rounded-full font-light hidden md:block">Create Account</button>
       </div>
     </div>
   );
