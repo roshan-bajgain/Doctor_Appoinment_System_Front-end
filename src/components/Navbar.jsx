@@ -1,8 +1,10 @@
 import React from "react";
 import { assets } from "../assets/assets";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+
+  const Navigate = useNavigate();
   return (
     <div className="flex items-center justify-between text-sm py-4 border-b border-b-gray-400">
       <img className="w-44 cursor-pointer" src={assets.logo} alt="Logo" />
@@ -25,7 +27,7 @@ export const Navbar = () => {
         </NavLink>
       </ul>
       <div className="flex items-center gap-4">
-        <button className="bg-blue-500 text-white px-8 py-3 rounded-full font-light hidden md:block">Create Account</button>
+        <button onClick={()=> Navigate('/login')} className="bg-blue-500 text-white px-8 py-3 rounded-full font-light hidden md:block">Create Account</button>
       </div>
     </div>
   );
