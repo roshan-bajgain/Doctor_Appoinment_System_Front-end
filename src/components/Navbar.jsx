@@ -24,7 +24,7 @@ export const Navbar = () => {
           <hr className="border-none outline-none h-0.5 bg-blue-500 w-3/5 m-auto hidden" />
         </NavLink>
         <NavLink to="/contact">
-          <li className="py-1">CONTACT</li>
+          <li className="py-1">CONTACTS</li>
           <hr className="border-none outline-none h-0.5 bg-blue-500 w-3/5 m-auto hidden" />
         </NavLink>
       </ul>
