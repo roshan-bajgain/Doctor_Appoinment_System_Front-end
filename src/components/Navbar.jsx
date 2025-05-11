@@ -43,8 +43,18 @@ export const Navbar = () => {
             />
             <div className="absolute top-0 right-0 pt-18 text-base font-medium text-gray-500 z-20 hidden group-hover:block">
               <div className="min-w-45 bg-stone-100 rounded flex flex-col gap-4 p-4">
-                <p className="hover:text-black cursor-pointer">My Profile</p>
-                <p className="hover:text-black cursor-pointer">My Appoinment</p>
+                <p
+                  onClick={() => Navigate("/my-profile")}
+                  className="hover:text-black cursor-pointer"
+                >
+                  My Profile
+                </p>
+                <p
+                  onClick={() => Navigate("/my-appoinment")}
+                  className="hover:text-black cursor-pointer"
+                >
+                  My Appoinment
+                </p>
                 <p className="hover:text-black cursor-pointer">Logout</p>
               </div>
             </div>
