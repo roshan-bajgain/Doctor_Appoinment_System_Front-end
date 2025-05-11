@@ -2,7 +2,7 @@ import React from 'react'
 
 const Appoinment = () => {
   return (
-    <div>Appoinment</div>
+    <div>Appoinment comming soon</div>
   )
 }
 
