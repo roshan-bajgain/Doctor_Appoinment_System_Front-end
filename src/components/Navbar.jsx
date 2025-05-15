@@ -9,7 +9,7 @@ export const Navbar = () => {
   const Navigate = useNavigate();
   return (
     <div className="flex items-center justify-between text-sm py-4 border-b border-b-gray-400">
-      <img className="w-44 cursor-pointer" src={assets.logo} alt="Logo" />
+      <img onClick={()=> Navigate('/')} className="w-44 cursor-pointer" src={assets.logo} alt="Logo" />
       <ul className="md:flex items-start gap-5 font-medium">
         <NavLink to="/">
           <li className="py-1">HOME</li>
