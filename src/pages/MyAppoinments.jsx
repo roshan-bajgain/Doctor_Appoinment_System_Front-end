@@ -6,30 +6,31 @@ import { toast } from "react-toastify";
 const MyAppoinment = () => {
   const { backendUrl, token } = useContext(AppContext);
 
-  const [appointments,setAppointments] = useState([])
+  const [appointments, setAppointments] = useState([]);
 
-  const getUserAppointments = async()=> {
+  const getUserAppointments = async () => {
     try {
-      const {data} = await axios.get(backendUrl + '/api/user/appointments', {headers:{token}})
+      const { data } = await axios.get(backendUrl + "/api/user/appointments", {
+        headers: { token },
+      });
 
-      if(data.success) {
-        setAppointments(data.appointments.reverse()) // reverse to show the first appoinement at first
-        console.log(data.appointments)
-
+      if (data.success) {
+        setAppointments(data.appointments.reverse()); // reverse to show the first appoinement at first
+        console.log(data.appointments);
       }
     } catch (error) {
-      console.log(error)
-      toast.error(error.message)
+      console.log(error);
+      toast.error(error.message);
     }
-  }
+  };
 
-  useEffect(()=> {
-    if(token){
-      getUserAppointments()
-    }else {
-
+  useEffect(() => {
+    if (token) {
+      getUserAppointments();
+    } else {
+      toast.error("Please login to view your appointments");
     }
-  })
+  }, [token]);
   return (
     <div>
       <p className="pb-3 mt-12 font-medium text-zinc-700 border-b">
