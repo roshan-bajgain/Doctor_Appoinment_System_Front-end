@@ -157,7 +157,7 @@ if(data.success){
             <input
               className="max-w-28 bg-gray-100"
               onChange={(e) =>
-                setUserData((prev) => ({ ...prev, bod: e.target.value }))
+                setUserData((prev) => ({ ...prev, dob: e.target.value }))
               }
               value={userData.dob}
               type="date"
