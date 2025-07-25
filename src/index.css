@@ -12,3 +12,5 @@
 ::-webkit-scrollbar {
   @apply hidden;
 }
+
+/* this is used in blue background color: bg-blue-500 */
