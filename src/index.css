@@ -14,3 +14,10 @@
 }
 
 /* this is used in blue background color: bg-blue-500 */
+
+@media (max-width:760px) {
+  .active p{
+    @apply text-white bg-blue-500
+  }
+  
+}
