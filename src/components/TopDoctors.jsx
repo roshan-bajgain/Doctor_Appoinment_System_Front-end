@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
-// import { doctors } from '../assets/assets'
+
 import { useNavigate } from 'react-router-dom';
-import { AppContext } from '../context/Appcontext';
+import { AppContext } from '../context/AppContext';
+
 
 const TopDoctors = () => {
   const navigate = useNavigate();
   const {doctors} = useContext(AppContext);
+  console.log("Context doctors:", doctors);
   return (
     <div className="flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10 ">
       <h1 className="text-3xl font-medium">Top Doctors</h1>
@@ -13,26 +15,27 @@ const TopDoctors = () => {
         Simple browse through our extensive list of trusted doctors
       </p>
       <div className="w-full grid [grid-template-columns:repeat(auto-fill,_minmax(225px,_1fr))] gap-4 pt-5 gap-y-6 px-3 sm:px-0">
-        {doctors.slice(0, 10).map((item, index) => (
-          <div
-            onClick={() => {
-              navigate(`/appoinment/${item._id}`);
-              scrollTo(0, 0);
-            }}
-            key={index}
-            className="border border-blue-400 rounded-xl overflow-hidden cursor-pointer transform hover:-translate-y-3 transition-all duration-500"
-          >
-            <img className="bg-blue-50 " src={item.image} alt="" />
-            <div className="p-4">
-              <div className="flex items-center gap-2 text-sm text-center text-green-500 ">
-                <p className="w-2 h-2 bg-green-400 rounded-full"></p>
-                <p>Availables</p>
+        {Array.isArray(doctors) &&
+          doctors.slice(0, 10).map((item, index) => (
+            <div
+              onClick={() => {
+                navigate(`/appoinment/${item._id}`);
+                scrollTo(0, 0);
+              }}
+              key={index}
+              className="border border-blue-400 rounded-xl overflow-hidden cursor-pointer transform hover:-translate-y-3 transition-all duration-500"
+            >
+              <img className="bg-blue-50 " src={item.image} alt="" />
+              <div className="p-4">
+                <div className="flex items-center gap-2 text-sm text-center text-green-500 ">
+                  <p className="w-2 h-2 bg-green-400 rounded-full"></p>
+                  <p>Availables</p>
+                </div>
+                <p className="text-gray-900 text-lg font-medium">{item.name}</p>
+                <p className="text-gray-600 text-sm">{item.speciality}</p>
               </div>
-              <p className="text-gray-900 text-lg font-medium">{item.name}</p>
-              <p className="text-gray-600 text-sm">{item.speciality}</p>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
       <button
         onClick={() => {
