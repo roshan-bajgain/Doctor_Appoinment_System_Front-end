@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
-  const currencySymbol = "$";
+  const currencySymbol = "Rs.";
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   console.log("Backend URL:", backendUrl);
   const [doctors, setDoctors] = useState([]);
