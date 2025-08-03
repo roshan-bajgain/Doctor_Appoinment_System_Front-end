@@ -12,11 +12,23 @@ const Banner = () => {
           <p>Book Appoinemnt</p>
           <p className="mt-4">With 100+ Truested doctor</p>
         </div>
-        <button onClick={()=> {navigate('/login'); scrollTo(0,0)}} className="bg-white text-sm sm:text-base text-gray-600 px-8 py-3 rounded-full mt-6 hover:scale-105 transition-all cursor-pointer">Create Account</button>
+        <button
+          onClick={() => {
+            navigate("/login");
+            scrollTo(0, 0);
+          }}
+          className="bg-white text-sm sm:text-base text-gray-600 px-8 py-3 rounded-full mt-6 hover:scale-105 transition-all cursor-pointer"
+        >
+          Create Account
+        </button>
       </div>
       {/* Right side */}
       <div className="hidden md:block md:w-1/2 lg:w-[370px] relative">
-        <img className="w-full absolute bottom-0 right-0 max-w-md " src={assets.appointment_img} alt="Appoinment Image" />
+        <img
+          className="w-full absolute bottom-0 right-0 max-w-md "
+          src={assets.appointment_img}
+          alt="Appoinment Image"
+        />
       </div>
     </div>
   );
