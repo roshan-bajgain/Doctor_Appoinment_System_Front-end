@@ -1,19 +1,40 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
 
 const RelatedDoctors = ({ speciality, docId }) => {
   const { doctors } = useContext(AppContext);
   const navigate = useNavigate();
-
   const [relDoc, setRelDocs] = useState([]);
 
+  // grouping Doctors By Specialty(Hash Map Construction)
+  const doctorMap = useMemo(() => {
+    const map = {};
+    for (let i = 0; i < doctors.length; i++) {
+      const doc = doctors[i];
+      if (!map[doc.speciality]) {
+        map[doc.speciality] = [];
+      }
+      map[doc.speciality].push(doc);
+    }
+    return map;
+  }, [doctors]);
+
+  // Manual filtering inside useEffect
   useEffect(() => {
-    const doctorsData = doctors.filter(
-      (doc) => doc.speciality === speciality && doc._id !== docId
-    );
-    setRelDocs(doctorsData);
-  }, [doctors, speciality, docId]);
+    const related = [];
+
+    const specialityDoctors = doctorMap[speciality] || [];
+
+    for (let i = 0; i < specialityDoctors.length; i++) {
+      const doc = specialityDoctors[i];
+      if (doc._id !== docId) {
+        related.push(doc);
+      }
+    }
+
+    setRelDocs(related);
+  }, [doctorMap, speciality, docId]);
 
   return (
     <div className="flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10 ">
