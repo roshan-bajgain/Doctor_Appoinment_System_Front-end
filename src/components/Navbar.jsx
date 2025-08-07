@@ -18,8 +18,8 @@ export const Navbar = () => {
     <div className="flex items-center justify-between text-sm py-4 border-b border-b-gray-400">
       <img
         onClick={() => Navigate("/")}
-        className="w-44 cursor-pointer"
-        src={assets.logo}
+        className="w-30 h-20 cursor-pointer"
+        src={assets.bglogo}
         alt="Logo"
       />
       <ul className="hidden md:flex items-start gap-5 font-medium">
