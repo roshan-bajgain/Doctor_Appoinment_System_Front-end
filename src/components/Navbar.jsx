@@ -18,7 +18,7 @@ export const Navbar = () => {
     <div className="flex items-center justify-between text-sm py-4 border-b border-b-gray-400">
       <img
         onClick={() => Navigate("/")}
-        className="w-30 h-20 cursor-pointer"
+        className="h-12 w-auto cursor-pointer object-contain border rounded-3xl"
         src={assets.bglogo}
         alt="Logo"
       />
@@ -67,10 +67,7 @@ export const Navbar = () => {
                 >
                   My Appoinment
                 </p>
-                <p
-                  onClick={logout}
-                  className="hover:text-black cursor-pointer"
-                >
+                <p onClick={logout} className="hover:text-black cursor-pointer">
                   Logout
                 </p>
               </div>
