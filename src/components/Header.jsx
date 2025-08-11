@@ -29,12 +29,12 @@ const Header = () => {
         </a>
       </div>
       {/* right side */}
-      <div className="md:w-1/2 relative">
-        {/* <img
-          className="w-full md:absolute bottom-0 h-auto rounded-lg"
-          src={assets.header_img}
+      <div className="md:w-1/2 flex justify-center items-center">
+        <img
+          className="w-full max-w-md h-auto object-contain rounded-2xl shadow-lg"
+          src={assets.doctor}
           alt="Header image"
-        /> */}
+        />
       </div>
     </div>
   );
